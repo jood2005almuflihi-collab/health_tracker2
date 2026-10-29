@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#F9F7F4">
+
+  <title>رعاية | تسجيل الدخول</title>
+
+  <style>
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    :root {
+      --primary: #739381;
+      --primary-hover: #5D806C;
+
+      --dark: #405A4C;
+      --text: #4A5A50;
+      --muted: #7A8980;
+
+      --light: #E6EFE8;
+      --beige: #F9F7F4;
+      --white: #FFFEFC;
+
+      --pink: #F5E7E7;
+
+      --border: #E8EBE5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family: Tahoma, Arial, sans-serif;
+
+      background: linear-gradient(
+        160deg,
+        #F0F5EE 0%,
+        #F9F7F4 48%,
+        #FAF0EE 100%
+      );
+
+      color: var(--text);
+    }
+
+    button,
+    input,
+    a {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* =========================
+       TOP BAR
+    ========================= */
+
+    .top-bar {
+      max-width: 900px;
+      margin: auto;
+
+      padding: 22px 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      color: var(--dark);
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      background: rgba(255,255,255,0.7);
+
+      padding: 10px 14px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .back-link:hover {
+      background: var(--light);
+    }
+
+    .top-title {
+      color: var(--primary-hover);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       LOGIN CONTAINER
+    ========================= */
+
+    .login-wrapper {
+      width: 100%;
+
+      max-width: 450px;
+
+      margin: 15px auto 40px;
+
+      padding: 0 18px;
+    }
+
+    /* =========================
+       BRAND
+    ========================= */
+
+    .login-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+
+      margin-bottom: 28px;
+    }
+
+    .login-logo {
+      width: 94px;
+      height: 94px;
+
+      border-radius: 50%;
+
+      background: #E6EFE8;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      box-shadow:
+        0 6px 25px rgba(90,130,100,0.12);
+
+      margin-bottom: 14px;
+    }
+
+    .login-logo svg {
+      width: 86px;
+      height: 86px;
+    }
+
+    .login-brand h1 {
+      margin: 0;
+
+      color: var(--dark);
+
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .login-brand p {
+      margin: 6px 0 0;
+
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       WELCOME
+    ========================= */
+
+    .welcome-text {
+      text-align: center;
+      margin-bottom: 23px;
+    }
+
+    .welcome-text h2 {
+      color: var(--dark);
+
+      font-size: 23px;
+      font-weight: 700;
+
+      margin: 0 0 9px;
+    }
+
+    .welcome-text p {
+      font-size: 13px;
+      color: var(--muted);
+
+      margin: 0;
+    }
+
+    /* =========================
+       LOGIN CARD
+    ========================= */
+
+    .login-card {
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 25px;
+
+      padding: 27px 23px;
+
+      box-shadow:
+        0 8px 35px rgba(66,83,70,0.05);
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+
+      margin-bottom: 9px;
+
+      color: var(--dark);
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 52px;
+
+      background: #FAFBF8;
+
+      border: 1px solid #E4E9E3;
+
+      border-radius: 14px;
+
+      padding: 0 15px;
+
+      color: var(--dark);
+
+      font-size: 13px;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #9DA9A0;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 3px rgba(115,147,129,0.13);
+    }
+
+    .password-input {
+      padding-left: 58px;
+    }
+
+    .toggle-password {
+      position: absolute;
+
+      left: 7px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border: none;
+
+      background: #EDF3ED;
+
+      color: var(--primary-hover);
+
+      height: 38px;
+      min-width: 44px;
+
+      padding: 0 8px;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       FAMILY CODE
+    ========================= */
+
+    .family-hint {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+
+      background: #F2F6F1;
+
+      border: 1px solid #E4ECE3;
+
+      border-radius: 13px;
+
+      padding: 12px;
+
+      margin-top: -8px;
+      margin-bottom: 23px;
+
+      color: #6A8070;
+
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .family-hint span {
+      font-size: 17px;
+    }
+
+    /* =========================
+       LOGIN BUTTON
+    ========================= */
+
+    .login-btn {
+      width: 100%;
+      height: 53px;
+
+      border: none;
+
+      border-radius: 15px;
+
+      background: linear-gradient(
+        135deg,
+        #87A995,
+        #668E78
+      );
+
+      color: white;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 6px 18px rgba(105,145,116,0.20);
+    }
+
+    .login-btn:active {
+      transform: translateY(0);
+    }
+
+    /* =========================
+       STATUS MESSAGE
+    ========================= */
+
+    .form-message {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 12px;
+
+      border-radius: 12px;
+
+      background: #F5E7E7;
+
+      color: #925F68;
+
+      font-size: 12px;
+
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .form-message.show {
+      display: block;
+    }
+
+    /* =========================
+       PRIVACY
+    ========================= */
+
+    .privacy-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+
+      margin-top: 22px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      text-align: center;
+    }
+
+    .footer-text {
+      margin-top: 25px;
+
+      text-align: center;
+
+      color: #98A59A;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 400px) {
+
+      .login-wrapper {
+        margin-top: 8px;
+      }
+
+      .login-card {
+        padding: 23px 17px;
+      }
+
+      .login-brand h1 {
+        font-size: 25px;
+      }
+
+      .welcome-text h2 {
+        font-size: 21px;
+      }
+
+      .form-input {
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- الشريط العلوي -->
+  <div class="top-bar">
+
+    <span class="top-title">رعاية ♡</span>
+
+    <a href="index.html" class="back-link">
+      <span aria-hidden="true">→</span>
+      العودة للرئيسية
+    </a>
+
+  </div>
+
+  <main class="login-wrapper">
+
+    <!-- شعار رعاية -->
+    <div class="login-brand">
+
+      <div class="login-logo">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 160 160"
+          role="img"
+          aria-label="شعار رعاية"
+        >
+
+          <defs>
+            <linearGradient
+              id="loginLogoGradient"
+              x1="0" y1="0"
+              x2="1" y2="1"
+            >
+              <stop
+                offset="0%"
+                stop-color="#9FBAA7"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#648C77"
+              />
+            </linearGradient>
+          </defs>
+
+          <circle
+            cx="80" cy="80" r="75"
+            fill="url(#loginLogoGradient)"
+          />
+
+          <circle
+            cx="80" cy="80" r="66"
+            fill="none"
+            stroke="#E8F1E9"
+            stroke-opacity="0.55"
+            stroke-width="1.5"
+          />
+
+          <!-- القلب -->
+          <path
+            d="
+              M80 101
+              C58 85 48 73 51 59
+              C54 46 69 44 80 57
+              C91 44 106 46 109 59
+              C112 73 102 85 80 101Z
+            "
+            fill="#F9E5E5"
+          />
+
+          <!-- اليدان -->
+          <path
+            d="
+              M33 89
+              C43 82 52 83 62 91
+              L77 103
+              C82 108 86 109 91 105
+              L104 95
+              C110 90 119 92 125 97
+              C113 115 98 125 80 127
+              C60 125 44 109 33 89Z
+            "
+            fill="#FFFBF6"
+          />
+
+          <path
+            d="M57 91 L76 106 M103 94 L88 106"
+            fill="none"
+            stroke="#D2E3D5"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </div>
+
+      <h1>رعاية</h1>
+
+      <p>
+        عناية تجمعنا، وطمأنينة تدوم
+      </p>
+
+    </div>
+
+    <!-- الترحيب -->
+    <div class="welcome-text">
+
+      <h2>مرحبًا بعودتكِ 🌷</h2>
+
+      <p>
+        سجّلي دخولكِ لمتابعة رعاية كبيرنا
+      </p>
+
+    </div>
+
+    <!-- نموذج تسجيل الدخول -->
+    <section class="login-card">
+
+      <form id="loginForm">
+
+        <!-- اسم المستخدم -->
+        <div class="form-group">
+
+          <label
+            for="username"
+            class="form-label"
+          >
+            اسم المستخدم
+          </label>
+
+          <div class="input-wrapper">
+
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-input"
+              placeholder="أدخلي اسم المستخدم"
+              autocomplete="username"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- كلمة المرور -->
+        <div class="form-group">
+
+          <label
+            for="password"
+            class="form-label"
+          >
+            كلمة المرور
+          </label>
+
+          <div class="input-wrapper">
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input password-input"
+              placeholder="أدخلي كلمة المرور"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              class="toggle-password"
+              id="togglePassword"
+              aria-label="إظهار كلمة المرور"
+              aria-pressed="false"
+            >
+              إظهار
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- رمز العائلة -->
+        <div class="form-group">
+
+          <label
+            for="familyCode"
+            class="form-label"
+          >
+            رمز العائلة
+          </label>
+
+          <div class="input-wrapper">
+
+            <input
+              type="password"
+              id="familyCode"
+              name="familyCode"
+              class="form-input"
+              placeholder="أدخلي رمز العائلة"
+              autocomplete="off"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- توضيح رمز العائلة -->
+        <div class="family-hint">
+
+          <span aria-hidden="true">🔐</span>
+
+          <div>
+            رمز العائلة مخصص للأفراد المصرح لهم.
+            يتم الحصول عليه من المسؤولة عن النظام.
+          </div>
+
+        </div>
+
+        <!-- زر الدخول -->
+        <button
+          type="submit"
+          class="login-btn"
+        >
+          <span>تسجيل الدخول</span>
+          <span aria-hidden="true">←</span>
+        </button>
+
+        <!-- رسائل النموذج -->
+        <div
+          id="formMessage"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+    </section>
+
+    <!-- الخصوصية -->
+    <div class="privacy-note">
+
+      <span aria-hidden="true">♡</span>
+
+      <span>
+        الدخول مخصص لأفراد العائلة المصرح لهم فقط
+      </span>
+
+    </div>
+
+    <div class="footer-text">
+      صُنع بحب من أجل رعاية من نحب ♡
+    </div>
+
+  </main>
+
+  <script>
+
+    /* =========================
+       إظهار وإخفاء كلمة المرور
+    ========================= */
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const togglePassword =
+      document.getElementById("togglePassword");
+
+    togglePassword.addEventListener(
+      "click",
+      function () {
+
+        const isHidden =
+          passwordInput.type === "password";
+
+        passwordInput.type =
+          isHidden ? "text" : "password";
+
+        togglePassword.textContent =
+          isHidden ? "إخفاء" : "إظهار";
+
+        togglePassword.setAttribute(
+          "aria-label",
+          isHidden
+            ? "إخفاء كلمة المرور"
+            : "إظهار كلمة المرور"
+        );
+
+        togglePassword.setAttribute(
+          "aria-pressed",
+          String(isHidden)
+        );
+
+      }
+    );
+
+    /* =========================
+       النموذج التجريبي
+    ========================= */
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const formMessage =
+      document.getElementById("formMessage");
+
+    loginForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+        // التحقق من اكتمال الحقول فقط
+        if (!loginForm.reportValidity()) {
+          return;
+        }
+
+        // لم تتم برمجة المصادقة بعد
+        formMessage.textContent =
+          "تم إدخال البيانات. تسجيل الدخول الفعلي " +
+          "سيكون متاحًا بعد ربط النظام بـ Django.";
+
+        formMessage.classList.add("show");
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

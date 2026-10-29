@@ -1,0 +1,953 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F9F7F4">
+
+  <title>رعاية | الرئيسية</title>
+
+  <style>
+
+    /* =========================
+       الألوان الأساسية
+    ========================= */
+
+    :root {
+      --primary: #739381;
+      --primary-hover: #5D806C;
+      --dark: #405A4C;
+      --light: #E6EFE8;
+      --beige: #F9F7F4;
+      --white: #FFFEFC;
+      --text: #4A5A50;
+      --muted: #7A8980;
+
+      --pink: #F5E7E7;
+      --pink-text: #A76F79;
+
+      --blue: #DCE8F2;
+      --blue-text: #66849A;
+
+      --border: #ECEDE7;
+      --shadow: 0 5px 20px rgba(66, 83, 70, 0.04);
+    }
+
+    /* =========================
+       إعدادات عامة
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--beige);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 105px;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 18px;
+      box-shadow: 0 2px 12px rgba(60,80,65,0.025);
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    /* الشعار الدائري */
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+
+      background: #F1F5F0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      box-shadow: 0 3px 12px rgba(87,126,99,0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-logo svg {
+      width: 54px;
+      height: 54px;
+      display: block;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .brand-text p {
+      margin: 2px 0 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* أزرار الهيدر */
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* زر تسجيل الدخول */
+
+    .login-header-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+
+      background: var(--light);
+      color: #4C735D;
+
+      border: 1px solid #DCE8DE;
+      border-radius: 13px;
+
+      padding: 10px 14px;
+
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .login-header-btn:hover {
+      background: #D6E7D9;
+      transform: translateY(-1px);
+    }
+
+    /* زر الإشعارات */
+
+    .notification-btn {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 14px;
+      border: 1px solid var(--border);
+
+      background: #F6F8F5;
+      color: var(--primary-hover);
+
+      display: grid;
+      place-items: center;
+
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .notification-btn:hover {
+      background: var(--light);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px 16px;
+    }
+
+    /* =========================
+       WELCOME
+    ========================= */
+
+    .welcome {
+      background: linear-gradient(
+        135deg,
+        #E7F0E9 0%,
+        #F2F5EE 55%,
+        #FAF2EC 100%
+      );
+
+      border: 1px solid #E5ECE4;
+      border-radius: 24px;
+
+      padding: 27px 23px;
+      margin-bottom: 26px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome::after {
+      content: "♡";
+
+      position: absolute;
+      left: 14px;
+      top: 5px;
+
+      font-size: 90px;
+      color: rgba(115,147,129,0.12);
+      pointer-events: none;
+    }
+
+    .welcome .date {
+      color: #648573;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .welcome h2 {
+      margin: 13px 0 9px;
+      color: var(--dark);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .welcome p {
+      margin: 0;
+      color: #73877A;
+      font-size: 13px;
+      max-width: 280px;
+    }
+
+    /* =========================
+       عناوين الأقسام
+    ========================= */
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 25px 0 15px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-link {
+      color: var(--primary-hover);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .section-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      padding: 20px 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card {
+      min-height: 235px;
+    }
+
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .pressure-icon {
+      background: var(--pink);
+      color: var(--pink-text);
+    }
+
+    .sugar-icon {
+      background: var(--blue);
+      color: var(--blue-text);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      color: var(--dark);
+      font-size: 25px;
+      font-weight: 700;
+
+      margin: 9px 0 5px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .stat-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       قياس ضغط الدم
+       الرقم الانقباضي فوق
+       الرقم الانبساطي تحت
+    ========================= */
+
+    .pressure-reading {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      width: fit-content;
+      min-width: 70px;
+
+      margin: 12px auto 10px;
+      direction: ltr;
+    }
+
+    .pressure-number {
+      display: block;
+      color: var(--dark);
+
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pressure-divider {
+      width: 65px;
+      height: 2px;
+
+      background: #D9A8AF;
+      border-radius: 10px;
+      margin: 5px 0;
+    }
+
+    .pressure-unit {
+      text-align: center;
+      color: var(--muted);
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .pressure-card .stat-note {
+      text-align: center;
+    }
+
+    /* =========================
+       الأدوية والمناوبات
+    ========================= */
+
+    .medicine-card,
+    .shift-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .medicine-card h4,
+    .shift-card h4 {
+      margin: 0 0 7px;
+
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .medicine-card p,
+    .shift-card p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .status {
+      background: #F1F5F0;
+      color: #64836E;
+
+      border: 1px solid #E7EDE5;
+      border-radius: 30px;
+
+      padding: 7px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .status-pink {
+      background: #FAF0F0;
+      color: #A77780;
+      border-color: #F3E4E4;
+    }
+
+    /* =========================
+       سجل القياسات
+    ========================= */
+
+    .empty-state {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .empty-icon {
+      background: #F2E9EC;
+      color: var(--pink-text);
+
+      width: 43px;
+      height: 43px;
+
+      border-radius: 14px;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 21px;
+      flex-shrink: 0;
+    }
+
+    .empty-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      background: rgba(255,254,252,0.98);
+
+      border-top: 1px solid var(--border);
+
+      padding: 12px 8px;
+      padding-bottom:
+        max(12px, env(safe-area-inset-bottom));
+
+      z-index: 10;
+
+      box-shadow:
+        0 -4px 20px rgba(60,80,65,0.025);
+    }
+
+    .bottom-nav nav {
+      max-width: 900px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #8C9990;
+      text-decoration: none;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 5px;
+      min-width: 60px;
+
+      padding: 5px 9px;
+      border-radius: 12px;
+
+      transition: color 0.2s ease;
+    }
+
+    .nav-link span {
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .nav-link small {
+      font-size: 11px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-hover);
+    }
+
+    .nav-link.active {
+      color: var(--primary-hover);
+      font-weight: 700;
+    }
+
+    .nav-link.active span {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 1px 12px;
+    }
+
+    /* =========================
+       MOBILE RESPONSIVENESS
+    ========================= */
+
+    @media (max-width: 480px) {
+
+      .site-header {
+        padding: 12px 10px;
+      }
+
+      .header-content {
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 7px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-logo svg {
+        width: 45px;
+        height: 45px;
+      }
+
+      .brand-text h1 {
+        font-size: 19px;
+      }
+
+      .brand-text p {
+        font-size: 9px;
+      }
+
+      .header-actions {
+        gap: 6px;
+      }
+
+      .login-header-btn {
+        padding: 9px 10px;
+        font-size: 11px;
+      }
+
+      .login-header-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .notification-btn {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      main {
+        padding: 18px 12px;
+      }
+
+      .card {
+        padding: 16px 12px;
+      }
+
+      .stat-value {
+        font-size: 21px;
+      }
+
+      .pressure-number {
+        font-size: 25px;
+      }
+
+      .welcome h2 {
+        font-size: 19px;
+      }
+
+      .status {
+        font-size: 10px;
+        padding: 6px 9px;
+      }
+
+      .brand-text p {
+        display: none;
+      }
+
+      .medicine-card,
+      .shift-card {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <div id="header-container"></div>
+
+  <main id="home">
+
+    <!-- =========================
+         الترحيب
+    ========================= -->
+
+    <section class="welcome">
+
+      <div class="date" id="today-date"></div>
+
+      <h2>أهلًا بكِ في رعاية 🌷</h2>
+
+      <p>
+        معًا نهتم بصحة كبيرنا وراحته
+      </p>
+
+    </section>
+
+    <!-- =========================
+         نظرة عامة
+    ========================= -->
+
+    <h3 class="section-title">
+      نظرة عامة
+    </h3>
+
+    <section class="stats">
+
+      <!-- بطاقة ضغط الدم -->
+
+      <div class="card stat-card pressure-card">
+
+        <div class="stat-icon pressure-icon">
+          ♡
+        </div>
+
+        <div class="stat-label">
+          آخر قياس ضغط
+        </div>
+
+        <div
+          class="pressure-reading"
+          aria-label="لم يُسجل قياس ضغط بعد"
+        >
+
+          <!-- الضغط الانقباضي -->
+          <span
+            class="pressure-number"
+            id="systolic-pressure"
+          >--</span>
+
+          <!-- الخط الفاصل -->
+          <div class="pressure-divider"></div>
+
+          <!-- الضغط الانبساطي -->
+          <span
+            class="pressure-number"
+            id="diastolic-pressure"
+          >--</span>
+
+        </div>
+
+        <div class="pressure-unit">
+          mmHg
+        </div>
+
+        <div class="stat-note">
+          لم يُسجل بعد
+        </div>
+
+      </div>
+
+      <!-- بطاقة سكر الدم -->
+
+      <div class="card stat-card">
+
+        <div class="stat-icon sugar-icon">
+          🩸
+        </div>
+
+        <div class="stat-label">
+          آخر قياس سكر
+        </div>
+
+        <div class="stat-value">
+          ---
+        </div>
+
+        <div class="stat-note">
+          لم يُسجل بعد
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         الأدوية
+    ========================= -->
+
+    <section id="medicines">
+
+      <div class="section-heading">
+
+        <h3 class="section-title">
+          💊 أدوية اليوم
+        </h3>
+
+        <a
+          href="#medicines"
+          class="section-link"
+        >
+          عرض الكل
+        </a>
+
+      </div>
+
+      <div class="card medicine-card">
+
+        <div>
+
+          <h4>لم تتم إضافة أدوية</h4>
+
+          <p>
+            ستظهر مواعيد الأدوية هنا
+          </p>
+
+        </div>
+
+        <span class="status">
+          بانتظار الإضافة
+        </span>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         المناوبة الحالية
+    ========================= -->
+
+    <section id="shifts">
+
+      <h3 class="section-title">
+        🌿 المناوبة الحالية
+      </h3>
+
+      <div class="card shift-card">
+
+        <div>
+
+          <h4>لم يتم تحديد المناوبة</h4>
+
+          <p>
+            ستظهر المسؤولة عن الرعاية هنا
+          </p>
+
+        </div>
+
+        <span class="status status-pink">
+          غير محددة
+        </span>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         سجل القياسات
+    ========================= -->
+
+    <section id="measurements">
+
+      <h3 class="section-title">
+        ♡ سجل القياسات
+      </h3>
+
+      <div class="card">
+
+        <div class="empty-state">
+
+          <div class="empty-icon">
+            ♡
+          </div>
+
+          <p class="empty-text">
+            لا توجد قياسات مسجلة حاليًا.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <div id="footer-container"></div>
+
+  <script>
+
+    /* =========================
+       تحميل القوالب المنفصلة
+    ========================= */
+
+    async function loadTemplate(file, elementId) {
+
+      try {
+
+        const response = await fetch(file);
+
+        if (!response.ok) {
+          throw new Error(
+            "تعذر تحميل " + file
+          );
+        }
+
+        const html = await response.text();
+
+        document.getElementById(
+          elementId
+        ).innerHTML = html;
+
+      } catch (error) {
+
+        console.error(error);
+
+        document.getElementById(
+          elementId
+        ).textContent =
+          "حدث خطأ أثناء تحميل " + file;
+      }
+
+    }
+
+    /* تحميل الهيدر */
+
+    loadTemplate(
+      "header.html",
+      "header-container"
+    );
+
+    /* تحميل الفوتر */
+
+    loadTemplate(
+      "footer.html",
+      "footer-container"
+    );
+
+    /* =========================
+       عرض التاريخ الحالي
+    ========================= */
+
+    const today = new Date();
+
+    document.getElementById(
+      "today-date"
+    ).textContent =
+      new Intl.DateTimeFormat("ar-SA", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        calendar: "gregory"
+      }).format(today);
+
+  </script>
+
+</body>
+</html>
